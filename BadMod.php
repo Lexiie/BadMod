@@ -15,16 +15,7 @@
 #*##*##*##*##*##*##*##*##*##*##*##*##*#
 */
 
-########################################
-#//||||||||||| check root |||||||||||\\#
-########################################
-$root = shell_exec("id");
-if (!preg_match("/root/",$root)){
-		system("clear");
-		$red    = "\e[91m";
-		echo $red."\n[~] please run script as root "."\n\n";
-		exit;
-	}
+
 ##########################################
 #//|||||||||||~ check curl ~|||||||||||\\#
 ##########################################
@@ -35,7 +26,7 @@ if(!extension_loaded('curl')) {
 		echo "    install it for you ? (y/n) : ";
 		$install = trim(fgets(STDIN,1024));
 		if ($install == "y"){
-		$install = "sudo apt-get install php-curl -y";
+		$install = "pkg install curl";
 		system("$install");
 		exit();
 			} else {
